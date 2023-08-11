@@ -3,7 +3,7 @@ import { Instance } from "@react-three/drei";
 import { useFrame } from '@react-three/fiber'
 
 
-function Planet({ data, numPlanets, planetSelected, texture, ...planet }) {
+function Planet({ data, numPlanets, planetSelected, texture, setPanelStatus, ...planet }) {
   const ref = useRef();
 
   useEffect(() => {
@@ -30,7 +30,9 @@ function Planet({ data, numPlanets, planetSelected, texture, ...planet }) {
       <Instance ref={ref} >
         <mesh 
           onClick={() => {
-            planetSelected({...planet, texture: texture})
+            planetSelected({...planet, texture: texture});
+            alert("planet clicked!")
+            setPanelStatus(true)
           }}
           onPointerMissed={() => planetSelected(null)}>
           <sphereGeometry args={[0.1, 30, 30]} />

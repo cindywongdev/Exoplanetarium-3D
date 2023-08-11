@@ -18,7 +18,7 @@ extend({ TextGeometry });
 
 const font = new FontLoader().parse(helvetiker);
 
-const Map = ({ planetSelected, data, controlsRef, controlsActive, setControlsActive, destinationCameraPosition, moveCameraTo }) => {
+const Map = ({ planetSelected, data, controlsRef, controlsActive, setControlsActive, destinationCameraPosition, moveCameraTo, setPanelStatus }) => {
   const numPlanets = data.length;
   const camera = useThree((state)=>state.camera)
   let originCameraLocation = new THREE.Vector3(camera.position.x, camera.position.y, camera.position.z)
@@ -86,6 +86,7 @@ const Map = ({ planetSelected, data, controlsRef, controlsActive, setControlsAct
             numPlanets={numPlanets}
             planetSelected={planetSelected}
             {...planet}
+            setPanelStatus={setPanelStatus}
           />
         )})}
       </Instances>

@@ -10,7 +10,7 @@ import System from "./Scenecomponents/System";
 
 
 
-const Scene = ({selectedPlanet, planetSelected, planetdata}) => {
+const Scene = ({selectedPlanet, planetSelected, planetdata, setPanelStatus}) => {
   let controlsRef = useRef();
   let [controlsActive, setControlsActive] = useState(false)
   let destinationCameraPosition = new THREE.Vector3()
@@ -64,7 +64,8 @@ const Scene = ({selectedPlanet, planetSelected, planetdata}) => {
               controlsActive={controlsActive} 
               setControlsActive={setControlsActive}
               destinationCameraPosition={destinationCameraPosition}
-              moveCameraTo={moveCameraTo} />
+              moveCameraTo={moveCameraTo}
+              setPanelStatus={setPanelStatus} />
           : <Map 
               data={planetdata} 
               planetSelected={planetSelected}  
@@ -72,7 +73,8 @@ const Scene = ({selectedPlanet, planetSelected, planetdata}) => {
               controlsActive={controlsActive} 
               setControlsActive={setControlsActive}
               destinationCameraPosition={destinationCameraPosition}
-              moveCameraTo={moveCameraTo} />
+              moveCameraTo={moveCameraTo}
+              setPanelStatus={setPanelStatus}/>
         }
         {/*<Stats />*/}
       </Canvas>

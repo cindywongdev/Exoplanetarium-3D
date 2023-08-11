@@ -28,6 +28,8 @@ function Visualize() {
     setSelectedPlanet(planet);
   };
 
+  const [panelStatus, setPanelStatus] = useState(true)
+
   // look into Suspense built-in component for async delay on texture load
 
   //Textures downloaded under CC0 from OpenGameArt.org
@@ -51,11 +53,13 @@ function Visualize() {
       <Scene 
         planetSelected={planetSelected} 
         selectedPlanet={selectedPlanet} 
-        planetdata={planetdata} />
+        planetdata={planetdata}
+        setPanelStatus={setPanelStatus} />
 
       {/* <SidePanel planet={selectedPlanet} /> */}
 
-      <SidePanelV2 planet={selectedPlanet}/>
+      <SidePanelV2 planet={selectedPlanet} setPanelStatus={setPanelStatus}
+      panelStatus={panelStatus}/>
     </div>
   );
 }

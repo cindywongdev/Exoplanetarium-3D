@@ -21,12 +21,12 @@ const defaultValue = {
     radius: "",
   },
 };
-function SidePanel({ planet }) {
+function SidePanel({ planet, setPanelStatus, panelStatus }) {
   const { name, disposition, rightAscension, declination, distance, starData } =
     planet ? planet : defaultValue;
   const { stellarDistance, effectiveTemperature, log, radius } = starData;
 
-  const [panelStatus, setPanelStatus] = useState(true)
+  // const [panelStatus, setPanelStatus] = useState(true)
   const [hovering, setHovering] = useState(false)
 
   // const handleLinkClick = () => {
@@ -39,7 +39,6 @@ function SidePanel({ planet }) {
 
   const handleReturnClick = () => {
     window.location.reload(false)
-    // setPanelStatus(true)
   }
 
   const handleHover = () => {
